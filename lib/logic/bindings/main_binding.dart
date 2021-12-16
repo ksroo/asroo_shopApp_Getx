@@ -1,9 +1,9 @@
-import '../controller/auth_controller.dart';
 import 'package:get/instance_manager.dart';
+import '../controllers/main_controller.dart';
 
-class AuthBindings extends Bindings {
+class MainBininding extends Bindings {
   @override
   void dependencies() {
-    Get.put(AuthController());
+    Get.put(MainController());
   }
 }

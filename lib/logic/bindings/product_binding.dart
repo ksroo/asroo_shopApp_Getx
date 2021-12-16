@@ -1,5 +1,6 @@
-import '../controller/product_controller.dart';
 import 'package:get/instance_manager.dart';
+
+import '../controllers/product_controller.dart';
 
 class ProductBinding extends Bindings {
   @override

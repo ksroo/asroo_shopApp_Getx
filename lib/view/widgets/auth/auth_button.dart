@@ -1,33 +1,32 @@
-import '../../../utils/my_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../utils/theme.dart';
+import '../text_utils.dart';
 
 class AuthButton extends StatelessWidget {
   final String text;
-  final Function onPressed;
+  final Function() onPressed;
+
   const AuthButton({
-    required this.text,
     required this.onPressed,
+    required this.text,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        primary: MyColor.mainColor,
+        primary: Get.isDarkMode ? pinkClr : mainColor,
         minimumSize: const Size(360, 50),
-        shape: StadiumBorder(),
       ),
-      onPressed: () {
-        onPressed();
-      },
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
+      child: TextUtils(
+        color: Colors.white,
+        text: text,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        underLine: TextDecoration.none,
       ),
     );
   }

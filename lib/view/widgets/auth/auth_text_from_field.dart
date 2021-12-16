@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../utils/theme.dart';
 
 class AuthTextFromField extends StatelessWidget {
-  final String text;
-  final Widget icon;
   final TextEditingController controller;
-  final Function validator;
   final bool obscureText;
+  final Function validator;
+  final Widget prefixIcon;
   final Widget suffixIcon;
-
+  final String hintText;
   const AuthTextFromField({
-    required this.text,
-    required this.icon,
     required this.controller,
-    required this.validator,
     required this.obscureText,
+    required this.validator,
+    required this.prefixIcon,
     required this.suffixIcon,
+    required this.hintText,
     Key? key,
   }) : super(key: key);
 
@@ -23,28 +24,20 @@ class AuthTextFromField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
-
+      cursorColor:  Colors.black,
+      keyboardType: TextInputType.text,
+      validator: (value) => validator(value),
       decoration: InputDecoration(
         fillColor: Colors.grey.shade200,
-        focusColor: Colors.red,
-        prefixIcon: icon,
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-        disabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(10),
+        hintText: hintText,
+        hintStyle: TextStyle(
+          color: Colors.black45,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(10),
-        ),
+        filled: true,
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(10),
@@ -53,18 +46,15 @@ class AuthTextFromField extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(10),
         ),
-        hintText: text,
-        hintStyle: const TextStyle(
-          color: Colors.black45,
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(10),
         ),
-        filled: true,
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
-      cursorColor: Colors.black,
-      keyboardType: TextInputType.text,
-      //autofillHints: autofillHints,
-      validator: (value) => validator(value),
     );
   }
 }

@@ -1,16 +1,16 @@
-import '../model/product_model.dart';
 import 'package:http/http.dart' as http;
+import '../models/product_models.dart';
+import '../utils/my_string.dart';
 
 class ProductServices {
-  static Future<List<ProductModel>> getProducts() async {
-    var response = await http.get(Uri.parse(
-        "https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"));
+  static Future<List<ProductModels>> getProduct() async {
+    var response = await http.get(Uri.parse('$baseUrl/products'));
 
     if (response.statusCode == 200) {
       var jsonData = response.body;
-      return productModelFromJson(jsonData);
+      return productModelsFromJson(jsonData);
     } else {
-      return throw Exception('Failed to load courses');
+      return throw Exception("Failed to load product");
     }
   }
 }

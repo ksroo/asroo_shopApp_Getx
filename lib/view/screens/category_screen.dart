@@ -6,7 +6,10 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("CategoryScreen"),
+      child: Text(
+        "CategoryScreen",
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
