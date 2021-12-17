@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:udemy_shop_app/routes/routes.dart';
 import '../../logic/controllers/main_controller.dart';
 
 import '../../utils/theme.dart';
@@ -22,7 +23,7 @@ class MainScreen extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () {
-                   
+                    Get.toNamed(Routes.cartScreen);
                   },
                   icon: Image.asset('assets/images/shop.png'),
                 ),
@@ -65,7 +66,7 @@ class MainScreen extends StatelessWidget {
                   ),
                   icon: Icon(
                     Icons.favorite,
-                   color: Get.isDarkMode ? Colors.white : Colors.black,
+                    color: Get.isDarkMode ? Colors.white : Colors.black,
                   ),
                   label: '',
                 ),
@@ -76,7 +77,7 @@ class MainScreen extends StatelessWidget {
                   ),
                   icon: Icon(
                     Icons.settings,
-                     color: Get.isDarkMode ? Colors.white : Colors.black,
+                    color: Get.isDarkMode ? Colors.white : Colors.black,
                   ),
                   label: '',
                 ),

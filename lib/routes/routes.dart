@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:udemy_shop_app/view/screens/cart_screen.dart';
 import '../logic/bindings/auth_biniding.dart';
 import '../logic/bindings/main_binding.dart';
 import '../logic/bindings/product_binding.dart';
@@ -44,6 +45,11 @@ class AppRoutes {
         ProductBinding(),
       ],
     ),
+    GetPage(
+      name: Routes.cartScreen,
+      page: () => CartScreen(),
+      binding: AuthBinding(),
+    ),
   ];
 }
 
@@ -53,4 +59,5 @@ class Routes {
   static const signUpScreen = '/signUpScreen';
   static const forgotPasswordScreen = '/forgotPasswordScreen';
   static const mainScreen = '/mainScreen';
+  static const cartScreen = '/cartScreen';
 }
