@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:udemy_shop_app/logic/controllers/category_controller.dart';
 import '../../models/product_models.dart';
 import '../../services/product_services.dart';
 
@@ -9,6 +12,8 @@ class ProductController extends GetxController {
   var favouritesList = <ProductModels>[].obs;
   var isLoading = true.obs;
   var stoarge = GetStorage();
+
+  // final controller = Get.find<CategoryController>();
 
   @override
   void onInit() {
@@ -55,5 +60,41 @@ class ProductController extends GetxController {
 
   bool isFavourites(int productId) {
     return favouritesList.any((element) => element.id == productId);
+  }
+
+  //Logic Search
+
+  var searchList = <ProductModels>[].obs;
+
+  TextEditingController searchcontroller = TextEditingController();
+
+  void addSearchToList(String searchText) {
+    searchText = searchText.toLowerCase();
+    searchList.value = productList.where((search) {
+      var searchTitle = search.title.toLowerCase();
+      var searchPrice = search.price.toString().toLowerCase();
+
+      return searchTitle.contains(searchText) ||
+          searchPrice.contains(searchText);
+    }).toList();
+
+    update();
+  }
+
+  void clearSearch() {
+    searchcontroller.clear();
+    addSearchToList("");
+  }
+
+  //Text Search Screen
+
+  List<ProductModels> categoryTest(String categoryNameTest) {
+    List<ProductModels> categoryList = productList
+        .where((element) => element.category
+            .toLowerCase()
+            .contains(categoryNameTest.toLowerCase()))
+        .toList();
+
+    return categoryList;
   }
 }

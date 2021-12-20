@@ -46,6 +46,8 @@ dependencies:
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
   readmore: ^2.1.0
+  badges: ^2.0.2
+  image_picker: ^0.8.4+4
 
 dev_dependencies:
   flutter_test:

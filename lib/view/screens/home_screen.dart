@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
+import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
 import '../../utils/theme.dart';
 import '../widgets/home/card_items.dart';
 import '../widgets/home/search_text_form.dart';
 import '../widgets/text_utils.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+  final controller = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {

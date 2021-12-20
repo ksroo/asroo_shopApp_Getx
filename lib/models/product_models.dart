@@ -26,7 +26,7 @@ class ProductModels {
   String title;
   double price;
   String description;
-  Category? category;
+  String  category;
   String image;
   Rating rating;
 
@@ -35,7 +35,7 @@ class ProductModels {
         title: json["title"],
         price: json["price"].toDouble(),
         description: json["description"],
-        category: categoryValues.map![json["category"]],
+        category: json["category"],
         image: json["image"],
         rating: Rating.fromJson(json["rating"]),
       );
@@ -49,6 +49,8 @@ class ProductModels {
         "image": image,
         "rating": rating.toJson(),
       };
+
+
 }
 
 enum Category { MEN_S_CLOTHING, JEWELERY, ELECTRONICS, WOMEN_S_CLOTHING }

@@ -26,7 +26,7 @@ class _SizeListState extends State<SizeList> {
             });
           },
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             decoration: BoxDecoration(
               color: Get.isDarkMode
                   ? currentSeletected == index

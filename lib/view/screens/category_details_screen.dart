@@ -1,81 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
+import 'package:udemy_shop_app/logic/controllers/category_controller.dart';
+import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
+
 import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/view/screens/auth/text_details.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
 import 'package:udemy_shop_app/view/screens/products_details_screen.dart';
-import '../../../logic/controllers/product_controller.dart';
-import '../../../utils/theme.dart';
-import '../text_utils.dart';
+import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 
-class CardItems extends StatelessWidget {
-  CardItems({Key? key}) : super(key: key);
+class CategoryDetailsScreen extends StatelessWidget {
+  CategoryDetailsScreen({Key? key}) : super(key: key);
 
-  final controller = Get.find<ProductController>();
+  final controller = Get.find<CategoryController>();
   final cartController = Get.find<CartController>();
+  final productController = Get.find<ProductController>();
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      if (controller.isLoading.value) {
-        return Center(
-          child: CircularProgressIndicator(
-            color: Get.isDarkMode ? pinkClr : mainColor,
-          ),
-        );
-      } else {
-        return Expanded(
-          child: controller.searchList.isEmpty &&
-                  controller.searchcontroller.text.isNotEmpty
-              ? Get.isDarkMode
-                  ? Image.asset("assets/images/search_empty_dark.png")
-                  : Image.asset('assets/images/search_empty_light.png')
-              : GridView.builder(
-                  itemCount: controller.searchList.isEmpty
-                      ? controller.productList.length
-                      : controller.searchList.length,
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    childAspectRatio: 0.8,
-                    mainAxisSpacing: 9.0,
-                    crossAxisSpacing: 6.0,
-                    maxCrossAxisExtent: 200,
-                  ),
-                  itemBuilder: (context, index) {
-                    if (controller.searchList.isEmpty) {
-                      return buildCardItems(
-                        image: controller.productList[index].image,
-                        price: controller.productList[index].price,
-                        rate: controller.productList[index].rating.rate,
-                        productId: controller.productList[index].id,
-                        productModels: controller.productList[index],
-                        onTap: () {
-                          Get.to(
-                            () => ProductsDetailsScreen(
-                              productModel: controller.productList[index],
-                            ),
-                          );
-                        },
-                      );
-                    } else {
-                      return buildCardItems(
-                        image: controller.searchList[index].image,
-                        price: controller.searchList[index].price,
-                        rate: controller.searchList[index].rating.rate,
-                        productId: controller.searchList[index].id,
-                        productModels: controller.searchList[index],
-                        onTap: () {
-                          Get.to(
-                            () => ProductsDetailsScreen(
-                              productModel: controller.searchList[index],
-                            ),
-                          );
-                        },
-                      );
-                    }
-                  }),
-        );
-      }
-    });
+    controller.getCategory("jewelery");
+    return Scaffold(
+      appBar: AppBar(),
+      body: GridView.builder(
+        itemCount: 5,
+        // itemCount: productController
+        //     .categoryTest(
+        //         controller.getCatehoryList.forEach((element) { }))
+        //     .toList()
+        //     .length,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          childAspectRatio: 0.8,
+          mainAxisSpacing: 9.0,
+          crossAxisSpacing: 6.0,
+          maxCrossAxisExtent: 200,
+        ),
+        itemBuilder: (context, index) {
+          return buildCardItems(
+            image: productController
+                .categoryTest(controller.getCatehoryList[index])[index]
+                .image,
+            price: productController
+                .categoryTest(controller.getCatehoryList[index])[index]
+                .price,
+            rate: productController
+                .categoryTest(controller.getCatehoryList[index])[index]
+                .rating
+                .rate,
+            productId: productController
+                .categoryTest(controller.getCatehoryList[index])[index]
+                .id,
+            productModels: productController
+                .categoryTest(controller.getCatehoryList[index])[index],
+            onTap: () {
+              Get.to(
+                () => ProductsDetailsScreen(
+                  productModel: controller.catehoryList[index],
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 
   Widget buildCardItems({
@@ -83,8 +69,8 @@ class CardItems extends StatelessWidget {
     required double price,
     required double rate,
     required int productId,
-    required ProductModels productModels,
     required Function() onTap,
+    required ProductModels productModels,
   }) {
     return Padding(
       padding: const EdgeInsets.all(5),
@@ -110,9 +96,9 @@ class CardItems extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        controller.manageFavourites(productId);
+                        productController.manageFavourites(productId);
                       },
-                      icon: controller.isFavourites(productId)
+                      icon: productController.isFavourites(productId)
                           ? const Icon(
                               Icons.favorite,
                               color: Colors.red,

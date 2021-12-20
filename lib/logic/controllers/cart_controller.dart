@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
 import 'package:udemy_shop_app/models/product_models.dart';
 import 'package:udemy_shop_app/routes/routes.dart';
 import 'package:udemy_shop_app/utils/theme.dart';
@@ -72,9 +68,14 @@ class CartController extends GetxController {
       .reduce((value, element) => value + element)
       .toStringAsFixed(2);
 
-  // Map<dynamic, dynamic> productsMap = {
-  //   "w" : ProductModels(),
-  //   "s" : ProductModels(),
-  //   "y" : ProductModels(),
-  // };
+  int quantity() {
+    if (productsMap.isEmpty) {
+      return 0;
+    } else {
+      return productsMap.entries
+          .map((e) => e.value)
+          .toList()
+          .reduce((value, element) => value + element);
+    }
+  }
 }

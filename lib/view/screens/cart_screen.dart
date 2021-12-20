@@ -44,7 +44,6 @@ class CartScreen extends StatelessWidget {
                       itemCount: controller.productsMap.length,
                       itemBuilder: (context, index) {
                         return CartProductCard(
-                         
                           index: index,
                           productModel:
                               controller.productsMap.keys.toList()[index],

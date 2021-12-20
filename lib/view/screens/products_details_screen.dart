@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udemy_shop_app/models/product_models.dart';
 import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/screens/body.dart';
+
 import 'package:udemy_shop_app/view/widgets/productDetails/add_cart.dart';
 
 import 'package:udemy_shop_app/view/widgets/productDetails/image_sliders.dart';
