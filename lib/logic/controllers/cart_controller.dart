@@ -7,7 +7,7 @@ import 'package:udemy_shop_app/utils/theme.dart';
 class CartController extends GetxController {
   var productsMap = {}.obs;
 
-  void addProductToCart(ProductModels productModels) async {
+  void addProductToCart(ProductModels productModels) {
     if (productsMap.containsKey(productModels)) {
       productsMap[productModels] += 1;
     } else {
@@ -15,20 +15,22 @@ class CartController extends GetxController {
     }
   }
 
-  void removeProductFromCart(ProductModels productModels) {
+  void removeProductsFarmCart(ProductModels productModels) {
     if (productsMap.containsKey(productModels) &&
         productsMap[productModels] == 1) {
       productsMap.removeWhere((key, value) => key == productModels);
     } else {
       productsMap[productModels] -= 1;
     }
+
+    
   }
 
-  void removeOneItems(ProductModels productModels) {
+  void removeOneProduct(ProductModels productModels) {
     productsMap.removeWhere((key, value) => key == productModels);
   }
 
-  void clearAllItems() {
+  void clearAllProducts() {
     Get.defaultDialog(
       title: "Clean Products",
       titleStyle: const TextStyle(

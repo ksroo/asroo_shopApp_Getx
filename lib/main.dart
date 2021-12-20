@@ -3,9 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'logic/controllers/theme_controller.dart';
-import 'routes/routes.dart';
-import 'utils/theme.dart';
+import 'package:udemy_shop_app/logic/controllers/theme_controller.dart';
+import 'package:udemy_shop_app/routes/routes.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,4 @@
 import 'package:badges/badges.dart';
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,12 +6,12 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
 import 'package:udemy_shop_app/routes/routes.dart';
 import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/productDetails/colors_picker.dart';
+import 'package:udemy_shop_app/view/widgets/productDetails/color_picker.dart';
 
 class ImageSliders extends StatefulWidget {
-  final String imgeUrl;
+  final String imageUrl;
   const ImageSliders({
-    required this.imgeUrl,
+    required this.imageUrl,
     Key? key,
   }) : super(key: key);
 
@@ -21,22 +20,22 @@ class ImageSliders extends StatefulWidget {
 }
 
 class _ImageSlidersState extends State<ImageSliders> {
-  final List<Color> colorsSelected = [
+  CarouselController carouselController = CarouselController();
+
+  final cartController = Get.find<CartController>();
+
+  final List<Color> colorSelected = [
     kCOlor1,
     kCOlor2,
     kCOlor3,
     kCOlor4,
     kCOlor5,
+    kCOlor2,
     kCOlor3,
     kCOlor4,
-    kCOlor5,
   ];
-  final CarouselController carouselController = CarouselController();
   int currentPage = 0;
   int currentColor = 0;
-
-  final cartController = Get.find<CartController>();
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -45,21 +44,23 @@ class _ImageSlidersState extends State<ImageSliders> {
           itemCount: 3,
           carouselController: carouselController,
           options: CarouselOptions(
-            height: 500,
-            autoPlay: true,
-            enlargeCenterPage: true,
-            enableInfiniteScroll: false,
-            autoPlayInterval: const Duration(seconds: 2),
-            viewportFraction: 1,
-            onPageChanged: (index, reason) =>
-                setState(() => currentPage = index),
-          ),
+              height: 500,
+              autoPlay: true,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: false,
+              autoPlayInterval: const Duration(seconds: 2),
+              viewportFraction: 1,
+              onPageChanged: (index, reson) {
+                setState(() {
+                  currentPage = index;
+                });
+              }),
           itemBuilder: (context, index, realIndex) {
             return Container(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(widget.imgeUrl),
+                  image: NetworkImage(widget.imageUrl),
                   fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.circular(25),
@@ -74,8 +75,8 @@ class _ImageSlidersState extends State<ImageSliders> {
             activeIndex: currentPage,
             count: 3,
             effect: ExpandingDotsEffect(
-              dotWidth: 10,
               dotHeight: 10,
+              dotWidth: 10,
               activeDotColor: Get.isDarkMode ? pinkClr : mainColor,
               dotColor: Colors.black,
             ),
@@ -93,24 +94,21 @@ class _ImageSlidersState extends State<ImageSliders> {
               borderRadius: BorderRadius.circular(30),
             ),
             child: ListView.separated(
-              padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    currentColor = index;
-                  });
-                },
-                child: ColorsPicker(
-                  outerBorder: currentColor == index,
-                  color: colorsSelected[index],
-                ),
-              );
+                  onTap: () {
+                    setState(() {
+                      currentColor = index;
+                    });
+                  },
+                  child: ColorPicker(
+                    color: colorSelected[index],
+                    outerBorder: currentColor == index,
+                  ),
+                );
               },
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 3,
-              ),
-              itemCount: colorsSelected.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 3),
+              itemCount: colorSelected.length,
             ),
           ),
         ),
@@ -147,10 +145,7 @@ class _ImageSlidersState extends State<ImageSliders> {
               ),
               Obx(
                 () => Badge(
-                  position: BadgePosition.topEnd(
-                    top: -10,
-                    end: -12,
-                  ),
+                  position: BadgePosition.topEnd(top: -10, end: -10),
                   animationDuration: const Duration(milliseconds: 300),
                   animationType: BadgeAnimationType.slide,
                   badgeContent: Text(
@@ -178,25 +173,6 @@ class _ImageSlidersState extends State<ImageSliders> {
                   ),
                 ),
               ),
-              // InkWell(
-              //   onTap: () {
-              //     Get.toNamed(Routes.cartScreen);
-              //   },
-              //   child: Container(
-              //     padding: const EdgeInsets.all(8),
-              //     decoration: BoxDecoration(
-              //       color: Get.isDarkMode
-              //           ? pinkClr.withOpacity(0.8)
-              //           : mainColor.withOpacity(0.8),
-              //       shape: BoxShape.circle,
-              //     ),
-              //     child: Icon(
-              //       Icons.shopping_cart,
-              //       color: Get.isDarkMode ? Colors.black : Colors.white,
-              //       size: 20,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

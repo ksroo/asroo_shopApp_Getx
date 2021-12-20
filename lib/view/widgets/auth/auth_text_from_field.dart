@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../utils/theme.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
 
 class AuthTextFromField extends StatelessWidget {
   final TextEditingController controller;

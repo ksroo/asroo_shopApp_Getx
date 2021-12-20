@@ -13,7 +13,6 @@ const Color accountSettings = Color(0xff73bc65);
 const Color logOutSettings = Color(0xff5f95ef);
 const Color notiSettings = Color(0xffdf5862);
 
-
 class ThemesApp {
   static final light = ThemeData(
     primaryColor: mainColor,

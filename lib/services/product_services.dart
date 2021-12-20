@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
-import '../models/product_models.dart';
-import '../utils/my_string.dart';
+import 'package:udemy_shop_app/models/product_models.dart';
+import 'package:udemy_shop_app/utils/my_string.dart';
 
 class ProductServices {
   static Future<List<ProductModels>> getProduct() async {

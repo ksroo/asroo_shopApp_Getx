@@ -4,10 +4,9 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import '../../models/facebook_model.dart';
+import 'package:udemy_shop_app/models/facebook_model.dart';
 
-import '../../routes/routes.dart';
+import 'package:udemy_shop_app/routes/routes.dart';
 
 class AuthController extends GetxController {
   bool isVisibilty = false;
@@ -203,6 +202,7 @@ class AuthController extends GetxController {
       isSignedIn = false;
       authBox.remove("auth");
       update();
+
       Get.offNamed(Routes.welcomeScreen);
     } catch (error) {
       Get.snackbar(

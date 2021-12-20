@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-
 import 'package:udemy_shop_app/view/widgets/productDetails/add_cart.dart';
-
-import 'package:udemy_shop_app/view/widgets/productDetails/image_sliders.dart';
-
 import 'package:udemy_shop_app/view/widgets/productDetails/clothes_info.dart';
+import 'package:udemy_shop_app/view/widgets/productDetails/image_sliders.dart';
 import 'package:udemy_shop_app/view/widgets/productDetails/size_list.dart';
 
-class ProductsDetailsScreen extends StatelessWidget {
-  final ProductModels productModel;
-  const ProductsDetailsScreen({
-    required this.productModel,
-    Key? key,
-  }) : super(key: key);
+class ProductDetailsScreen extends StatelessWidget {
+  final ProductModels productModels;
+  const ProductDetailsScreen({required this.productModels, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +21,18 @@ class ProductsDetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ImageSliders(
-                imgeUrl: productModel.image,
+                imageUrl: productModels.image,
               ),
               ClothesInfo(
-                description: productModel.description,
-                rate: productModel.rating.rate,
-                title: productModel.title,
-                productId: productModel.id,
+                title: productModels.title,
+                productId: productModels.id,
+                rate: productModels.rating.rate,
+                description: productModels.description,
               ),
               const SizeList(),
               AddCart(
-                price: productModel.price,
-                productModels: productModel,
+                price: productModels.price,
+                productModels: productModels,
               ),
             ],
           ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../routes/routes.dart';
-import '../../utils/theme.dart';
-import 'auth/login_screen.dart';
-import '../widgets/text_utils.dart';
+import 'package:udemy_shop_app/routes/routes.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
+import 'package:udemy_shop_app/view/screens/auth/login_screen.dart';
+import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/auth_controller.dart';
-import 'package:udemy_shop_app/logic/controllers/theme_controller.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/settings/icon_widget.dart';
-import 'package:udemy_shop_app/view/widgets/settings/profile_image.dart';
+import '../../logic/controllers/auth_controller.dart';
+import '../../logic/controllers/theme_controller.dart';
+import '../../utils/theme.dart';
+import '../widgets/settings/icon_widget.dart';
+import '../widgets/settings/profile_image.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);

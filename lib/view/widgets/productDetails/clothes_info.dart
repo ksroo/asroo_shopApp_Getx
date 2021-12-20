@@ -8,14 +8,14 @@ import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 
 class ClothesInfo extends StatelessWidget {
   final String title;
+  final int productId;
   final double rate;
   final String description;
-  final int productId;
   ClothesInfo({
-    required this.description,
-    required this.rate,
     required this.title,
     required this.productId,
+    required this.rate,
+    required this.description,
     Key? key,
   }) : super(key: key);
 
@@ -36,9 +36,9 @@ class ClothesInfo extends StatelessWidget {
                   title,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: Get.isDarkMode ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
                     fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Get.isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
               ),
@@ -52,7 +52,9 @@ class ClothesInfo extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: InkWell(
-                    onTap: () => controller.manageFavourites(productId),
+                    onTap: () {
+                      controller.manageFavourites(productId);
+                    },
                     child: controller.isFavourites(productId)
                         ? const Icon(
                             Icons.favorite,
@@ -83,19 +85,14 @@ class ClothesInfo extends StatelessWidget {
               ),
               RatingBar(
                 rating: rate,
-                icon: const Icon(
-                  Icons.star,
-                  size: 20,
-                  color: Colors.grey,
-                ),
+                icon: const Icon(Icons.star, size: 20, color: Colors.grey),
                 starCount: 5,
                 spacing: 1,
                 size: 20,
                 isIndicator: false,
                 allowHalfRating: true,
-                onRatingCallback:
-                    (double value, ValueNotifier<bool> isIndicator) {
-                  isIndicator.value = true;
+                onRatingCallback: (value, isIndictor) {
+                  isIndictor.value = true;
                 },
                 color: Colors.orangeAccent,
               ),

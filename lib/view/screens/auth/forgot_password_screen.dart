@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../logic/controllers/auth_controller.dart';
-import '../../../utils/my_string.dart';
-import '../../../utils/theme.dart';
-import '../../widgets/auth/auth_button.dart';
-import '../../widgets/auth/auth_text_from_field.dart';
+import 'package:udemy_shop_app/logic/controllers/auth_controller.dart';
+import 'package:udemy_shop_app/utils/my_string.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
+import 'package:udemy_shop_app/view/widgets/auth/auth_button.dart';
+import 'package:udemy_shop_app/view/widgets/auth/auth_text_from_field.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   ForgotPasswordScreen({Key? key}) : super(key: key);

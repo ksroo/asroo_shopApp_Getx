@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:udemy_shop_app/logic/controllers/category_controller.dart';
-import '../../models/product_models.dart';
-import '../../services/product_services.dart';
+import 'package:udemy_shop_app/models/product_models.dart';
+import 'package:udemy_shop_app/services/product_services.dart';
 
 class ProductController extends GetxController {
   var productList = <ProductModels>[].obs;
@@ -13,7 +11,9 @@ class ProductController extends GetxController {
   var isLoading = true.obs;
   var stoarge = GetStorage();
 
-  // final controller = Get.find<CategoryController>();
+  //search
+  var searchList = <ProductModels>[].obs;
+  TextEditingController searchTextController = TextEditingController();
 
   @override
   void onInit() {
@@ -62,39 +62,24 @@ class ProductController extends GetxController {
     return favouritesList.any((element) => element.id == productId);
   }
 
-  //Logic Search
+//Search Bar Logic
 
-  var searchList = <ProductModels>[].obs;
+  void addSearchToList(String searchName) {
+    searchName = searchName.toLowerCase();
 
-  TextEditingController searchcontroller = TextEditingController();
-
-  void addSearchToList(String searchText) {
-    searchText = searchText.toLowerCase();
     searchList.value = productList.where((search) {
       var searchTitle = search.title.toLowerCase();
       var searchPrice = search.price.toString().toLowerCase();
 
-      return searchTitle.contains(searchText) ||
-          searchPrice.contains(searchText);
+      return searchTitle.contains(searchName) ||
+          searchPrice.toString().contains(searchName);
     }).toList();
 
     update();
   }
 
   void clearSearch() {
-    searchcontroller.clear();
+    searchTextController.clear();
     addSearchToList("");
-  }
-
-  //Text Search Screen
-
-  List<ProductModels> categoryTest(String categoryNameTest) {
-    List<ProductModels> categoryList = productList
-        .where((element) => element.category
-            .toLowerCase()
-            .contains(categoryNameTest.toLowerCase()))
-        .toList();
-
-    return categoryList;
   }
 }

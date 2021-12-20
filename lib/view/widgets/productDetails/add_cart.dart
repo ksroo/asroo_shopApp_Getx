@@ -33,11 +33,12 @@ class AddCart extends StatelessWidget {
               Text(
                 "\$$price",
                 style: TextStyle(
-                    color: Get.isDarkMode ? Colors.white : Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    height: 1.5),
-              )
+                  color: Get.isDarkMode ? Colors.white : Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  height: 1.5,
+                ),
+              ),
             ],
           ),
           const SizedBox(
@@ -61,16 +62,18 @@ class AddCart extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text(
-                      'Add to Cart',
+                      "Add to Cart",
                       style: TextStyle(
-                        fontSize: 20,
                         color: Colors.white,
+                        fontSize: 20,
                       ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Icon(Icons.shopping_cart_outlined)
+                    Icon(
+                      Icons.shopping_cart_outlined,
+                    ),
                   ],
                 ),
               ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_shop_app/view/widgets/category/category_widget.dart';
 
-// ignore: must_be_immutable
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);
 

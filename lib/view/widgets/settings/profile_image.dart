@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/auth_controller.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../logic/controllers/auth_controller.dart';
+import '../text_utils.dart';
 
 class ProfileImage extends StatelessWidget {
   ProfileImage({Key? key}) : super(key: key);

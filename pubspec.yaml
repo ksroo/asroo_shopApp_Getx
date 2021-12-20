@@ -42,12 +42,14 @@ dependencies:
   google_fonts: ^2.1.0
   http: ^0.13.4
   flutter_facebook_auth: "^3.5.0"
-  flutter_simple_rating_bar: 0.0.3
-  carousel_slider: ^4.0.0
-  smooth_page_indicator: ^1.0.0+2
-  readmore: ^2.1.0
   badges: ^2.0.2
-  image_picker: ^0.8.4+4
+  smooth_page_indicator: ^1.0.0+2
+  carousel_slider: ^4.0.0
+  flutter_rating_bar: ^4.0.0
+  flutter_simple_rating_bar: ^0.0.3
+  readmore: ^2.1.0
+
+
 
 dev_dependencies:
   flutter_test:

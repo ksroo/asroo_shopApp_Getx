@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
+import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
 import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/view/screens/auth/text_details.dart';
-import 'package:udemy_shop_app/view/screens/products_details_screen.dart';
-import '../../../logic/controllers/product_controller.dart';
-import '../../../utils/theme.dart';
-import '../text_utils.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
+import 'package:udemy_shop_app/view/screens/product_details_scree.dart';
+import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 
 class CardItems extends StatelessWidget {
   CardItems({Key? key}) : super(key: key);
 
   final controller = Get.find<ProductController>();
+
   final cartController = Get.find<CartController>();
 
   @override
@@ -26,10 +26,10 @@ class CardItems extends StatelessWidget {
       } else {
         return Expanded(
           child: controller.searchList.isEmpty &&
-                  controller.searchcontroller.text.isNotEmpty
+                  controller.searchTextController.text.isNotEmpty
               ? Get.isDarkMode
                   ? Image.asset("assets/images/search_empty_dark.png")
-                  : Image.asset('assets/images/search_empty_light.png')
+                  : Image.asset("assets/images/search_empty_light.png")
               : GridView.builder(
                   itemCount: controller.searchList.isEmpty
                       ? controller.productList.length
@@ -43,36 +43,31 @@ class CardItems extends StatelessWidget {
                   itemBuilder: (context, index) {
                     if (controller.searchList.isEmpty) {
                       return buildCardItems(
-                        image: controller.productList[index].image,
-                        price: controller.productList[index].price,
-                        rate: controller.productList[index].rating.rate,
-                        productId: controller.productList[index].id,
-                        productModels: controller.productList[index],
-                        onTap: () {
-                          Get.to(
-                            () => ProductsDetailsScreen(
-                              productModel: controller.productList[index],
-                            ),
-                          );
-                        },
-                      );
+                          image: controller.productList[index].image,
+                          price: controller.productList[index].price,
+                          rate: controller.productList[index].rating.rate,
+                          productId: controller.productList[index].id,
+                          productModels: controller.productList[index],
+                          onTap: () {
+                            Get.to(() => ProductDetailsScreen(
+                                  productModels: controller.productList[index],
+                                ));
+                          });
                     } else {
                       return buildCardItems(
-                        image: controller.searchList[index].image,
-                        price: controller.searchList[index].price,
-                        rate: controller.searchList[index].rating.rate,
-                        productId: controller.searchList[index].id,
-                        productModels: controller.searchList[index],
-                        onTap: () {
-                          Get.to(
-                            () => ProductsDetailsScreen(
-                              productModel: controller.searchList[index],
-                            ),
-                          );
-                        },
-                      );
+                          image: controller.searchList[index].image,
+                          price: controller.searchList[index].price,
+                          rate: controller.searchList[index].rating.rate,
+                          productId: controller.searchList[index].id,
+                          productModels: controller.searchList[index],
+                          onTap: () {
+                            Get.to(() => ProductDetailsScreen(
+                                  productModels: controller.searchList[index],
+                                ));
+                          });
                     }
-                  }),
+                  },
+                ),
         );
       }
     });

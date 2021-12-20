@@ -5,21 +5,22 @@ import 'package:udemy_shop_app/models/product_models.dart';
 import 'package:udemy_shop_app/utils/theme.dart';
 
 class CartProductCard extends StatelessWidget {
-  final ProductModels productModel;
-  final int quantity;
+  final ProductModels productModels;
   final int index;
-
+  final int quantity;
   CartProductCard({
-    required this.productModel,
-    required this.quantity,
+    required this.productModels,
     required this.index,
+    required this.quantity,
     Key? key,
   }) : super(key: key);
+
   final controller = Get.find<CartController>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 20, right: 20),
+      margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
       height: 130,
       width: 100,
       decoration: BoxDecoration(
@@ -39,7 +40,7 @@ class CartProductCard extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
-                image: NetworkImage(productModel.image),
+                image: NetworkImage(productModels.image),
                 fit: BoxFit.cover,
               ),
             ),
@@ -54,7 +55,7 @@ class CartProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  productModel.title,
+                  productModels.title,
                   style: TextStyle(
                     overflow: TextOverflow.ellipsis,
                     color: Get.isDarkMode ? Colors.white : Colors.black,
@@ -68,6 +69,7 @@ class CartProductCard extends StatelessWidget {
                 Text(
                   "\$${controller.productSubTotal[index].toStringAsFixed(2)}",
                   style: TextStyle(
+                    overflow: TextOverflow.ellipsis,
                     color: Get.isDarkMode ? Colors.white : Colors.black,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -76,9 +78,6 @@ class CartProductCard extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer(
-            flex: 1,
-          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -86,7 +85,7 @@ class CartProductCard extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {
-                      controller.removeProductFromCart(productModel);
+                      controller.removeProductsFarmCart(productModels);
                     },
                     icon: Icon(
                       Icons.remove_circle,
@@ -95,7 +94,7 @@ class CartProductCard extends StatelessWidget {
                   ),
                   Text(
                     "$quantity",
-                    style: const TextStyle(
+                    style: TextStyle(
                       overflow: TextOverflow.ellipsis,
                       color: Colors.black,
                       fontSize: 16,
@@ -104,7 +103,7 @@ class CartProductCard extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      controller.addProductToCart(productModel);
+                      controller.addProductToCart(productModels);
                     },
                     icon: Icon(
                       Icons.add_circle,
@@ -115,12 +114,12 @@ class CartProductCard extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  controller.removeOneItems(productModel);
+                  controller.removeOneProduct(productModels);
                 },
                 icon: Icon(
                   Icons.delete,
-                  color: Get.isDarkMode ? Colors.black : Colors.red,
                   size: 20,
+                  color: Get.isDarkMode ? Colors.black : Colors.red,
                 ),
               ),
             ],
