@@ -9,6 +9,7 @@ import 'package:udemy_shop_app/view/screens/auth/signup_screen.dart';
 import 'package:udemy_shop_app/view/screens/cart_screen.dart';
 import 'package:udemy_shop_app/view/screens/main_screen.dart';
 import 'package:udemy_shop_app/view/screens/welcome_screen.dart';
+import 'package:udemy_shop_app/view/widgets/category/category_items.dart';
 
 class AppRoutes {
   //initialRoute
@@ -54,6 +55,14 @@ class AppRoutes {
         ProductBinding(),
       ],
     ),
+    // GetPage(
+    //   name: Routes.categoryItems,
+    //   page: () => CategoryItems(),
+    //   bindings: [
+    //     AuthBinding(),
+    //     ProductBinding(),
+    //   ],
+    // ),
   ];
 }
 
@@ -64,4 +73,5 @@ class Routes {
   static const forgotPasswordScreen = '/forgotPasswordScreen';
   static const mainScreen = '/mainScreen';
   static const cartScreen = '/cartScreen';
+  static const categoryItems = '/categoryItems';
 }

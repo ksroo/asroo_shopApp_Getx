@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
+import 'package:udemy_shop_app/utils/theme.dart';
 import 'package:udemy_shop_app/view/widgets/category/category_widget.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({Key? key}) : super(key: key);
+  CategoryScreen({Key? key}) : super(key: key);
+
+  final controller = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {

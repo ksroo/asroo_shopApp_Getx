@@ -3,6 +3,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:udemy_shop_app/models/product_models.dart';
+import 'package:udemy_shop_app/services/category_services.dart';
 import 'package:udemy_shop_app/services/product_services.dart';
 
 class ProductController extends GetxController {
@@ -10,6 +11,7 @@ class ProductController extends GetxController {
   var favouritesList = <ProductModels>[].obs;
   var isLoading = true.obs;
   var stoarge = GetStorage();
+  var imageList = <ProductModels>[].obs;
 
   //search
   var searchList = <ProductModels>[].obs;
@@ -26,6 +28,7 @@ class ProductController extends GetxController {
           storedShoppings.map((e) => ProductModels.fromJson(e)).toList().obs;
     }
     getProducts();
+    getCategoryes();
   }
 
   void getProducts() async {
@@ -81,5 +84,40 @@ class ProductController extends GetxController {
   void clearSearch() {
     searchTextController.clear();
     addSearchToList("");
+  }
+
+  //Category Lis Featch data
+  var categoryNameList = <String>[].obs;
+  var categoryList = <ProductModels>[].obs;
+
+  var showGridView = false.obs;
+  var showCategoryNames = false.obs;
+
+  void getCategoryes() async {
+    var categoryName = await CategoryServices.getCategory();
+
+    try {
+      showCategoryNames(true);
+      if (categoryName.isNotEmpty) {
+        categoryNameList.addAll(categoryName);
+      }
+    } finally {
+      showCategoryNames(false);
+    }
+  }
+
+  loadCategory(String categoryName) async {
+    showGridView(true);
+    categoryList.value = await AllCategoryServices.getALLCategory(categoryName);
+
+    showGridView(false);
+  }
+
+  getCategoryIndex(index) async {
+    var categoryAllName = await loadCategory(categoryNameList[index]);
+
+    if (categoryAllName != null) {
+      categoryList.value = categoryAllName;
+    }
   }
 }
