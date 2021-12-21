@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
-import 'package:udemy_shop_app/models/category_model.dart';
-import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/utils/my_string.dart';
+import '../models/category_model.dart';
+import '../models/product_models.dart';
+import '../utils/my_string.dart';
 
 class CategoryServices {
   static Future<List<String>> getCategory() async {

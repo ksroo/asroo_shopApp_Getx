@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_rating_bar/flutter_simple_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
-import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../logic/controllers/product_controller.dart';
+import '../../../utils/theme.dart';
+import '../text_utils.dart';
 
 class ClothesInfo extends StatelessWidget {
   final String title;

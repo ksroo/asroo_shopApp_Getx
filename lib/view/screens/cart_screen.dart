@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/cart/cart_product_card.dart';
-import 'package:udemy_shop_app/view/widgets/cart/cart_total.dart';
-import 'package:udemy_shop_app/view/widgets/cart/empty_cart.dart';
+import '../../logic/controllers/cart_controller.dart';
+import '../../utils/theme.dart';
+import '../widgets/cart/cart_product_card.dart';
+import '../widgets/cart/cart_total.dart';
+import '../widgets/cart/empty_cart.dart';
 
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);

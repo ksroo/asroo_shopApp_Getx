@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/view/widgets/category/category_items.dart';
+import 'category_items.dart';
 
 import '../../../logic/controllers/product_controller.dart';
 import '../../../routes/routes.dart';
@@ -35,7 +35,7 @@ class CategoryWidget extends StatelessWidget {
                 return InkWell(
                   onTap: () {
                     productController.getCategoryIndex(index);
-                    // productController.toggleGrid();
+                  
                     Get.to(() => CategoryItems(
                           title: productController.categoryNameList[index],
                         ));

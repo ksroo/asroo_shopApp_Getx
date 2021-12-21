@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
-import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/screens/product_details_scree.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../logic/controllers/cart_controller.dart';
+import '../../../logic/controllers/product_controller.dart';
+import '../../../models/product_models.dart';
+import '../../../utils/theme.dart';
+import '../../screens/product_details_scree.dart';
+import '../text_utils.dart';
 
 class CategoryItems extends StatelessWidget {
   final String title;
@@ -65,12 +65,6 @@ class CategoryItems extends StatelessWidget {
       ),
     );
   }
-
-// return Center(
-//               child: CircularProgressIndicator(
-//                 color: Get.isDarkMode ? pinkClr : mainColor,
-//               ),
-//             );
 
   Widget buildCardItems({
     required String image,

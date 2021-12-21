@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../logic/controllers/cart_controller.dart';
+import '../../../utils/theme.dart';
+import '../text_utils.dart';
 
 class CartTotal extends StatelessWidget {
   CartTotal({Key? key}) : super(key: key);

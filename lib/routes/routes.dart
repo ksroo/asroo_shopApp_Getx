@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/bindings/auth_biniding.dart';
-import 'package:udemy_shop_app/logic/bindings/main_binding.dart';
-import 'package:udemy_shop_app/logic/bindings/product_binding.dart';
-import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
-import 'package:udemy_shop_app/view/screens/auth/forgot_password_screen.dart';
-import 'package:udemy_shop_app/view/screens/auth/login_screen.dart';
-import 'package:udemy_shop_app/view/screens/auth/signup_screen.dart';
-import 'package:udemy_shop_app/view/screens/cart_screen.dart';
-import 'package:udemy_shop_app/view/screens/main_screen.dart';
-import 'package:udemy_shop_app/view/screens/welcome_screen.dart';
-import 'package:udemy_shop_app/view/widgets/category/category_items.dart';
+import '../logic/bindings/auth_biniding.dart';
+import '../logic/bindings/main_binding.dart';
+import '../logic/bindings/product_binding.dart';
+import '../logic/controllers/product_controller.dart';
+import '../view/screens/auth/forgot_password_screen.dart';
+import '../view/screens/auth/login_screen.dart';
+import '../view/screens/auth/signup_screen.dart';
+import '../view/screens/cart_screen.dart';
+import '../view/screens/main_screen.dart';
+import '../view/screens/welcome_screen.dart';
+import '../view/widgets/category/category_items.dart';
 
 class AppRoutes {
   //initialRoute

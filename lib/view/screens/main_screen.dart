@@ -1,11 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/logic/controllers/main_controller.dart';
-import 'package:udemy_shop_app/routes/routes.dart';
+import '../../logic/controllers/cart_controller.dart';
+import '../../logic/controllers/main_controller.dart';
+import '../../routes/routes.dart';
 
-import 'package:udemy_shop_app/utils/theme.dart';
+import '../../utils/theme.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/routes/routes.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
+import '../../models/product_models.dart';
+import '../../routes/routes.dart';
+import '../../utils/theme.dart';
 
 class CartController extends GetxController {
   var productsMap = {}.obs;

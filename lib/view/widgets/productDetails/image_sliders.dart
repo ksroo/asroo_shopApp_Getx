@@ -3,10 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/routes/routes.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/productDetails/color_picker.dart';
+import '../../../logic/controllers/cart_controller.dart';
+import '../../../routes/routes.dart';
+import '../../../utils/theme.dart';
+import 'color_picker.dart';
 
 class ImageSliders extends StatefulWidget {
   final String imageUrl;

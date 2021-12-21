@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
-import 'package:udemy_shop_app/models/product_models.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
+import '../../../logic/controllers/cart_controller.dart';
+import '../../../models/product_models.dart';
+import '../../../utils/theme.dart';
 
 class CartProductCard extends StatelessWidget {
   final ProductModels productModels;

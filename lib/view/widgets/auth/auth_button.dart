@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../utils/theme.dart';
+import '../text_utils.dart';
 
 class AuthButton extends StatelessWidget {
   final String text;

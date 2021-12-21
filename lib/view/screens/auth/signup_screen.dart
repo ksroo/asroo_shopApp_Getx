@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/auth_controller.dart';
-import 'package:udemy_shop_app/routes/routes.dart';
+import '../../../logic/controllers/auth_controller.dart';
+import '../../../routes/routes.dart';
 
-import 'package:udemy_shop_app/utils/my_string.dart';
+import '../../../utils/my_string.dart';
 
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/auth/auth_button.dart';
-import 'package:udemy_shop_app/view/widgets/auth/auth_text_from_field.dart';
-import 'package:udemy_shop_app/view/widgets/auth/check_widget.dart';
-import 'package:udemy_shop_app/view/widgets/auth/container_under.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../utils/theme.dart';
+import '../../widgets/auth/auth_button.dart';
+import '../../widgets/auth/auth_text_from_field.dart';
+import '../../widgets/auth/check_widget.dart';
+import '../../widgets/auth/container_under.dart';
+import '../../widgets/text_utils.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);

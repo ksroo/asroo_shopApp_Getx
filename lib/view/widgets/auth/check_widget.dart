@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/auth_controller.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../../logic/controllers/auth_controller.dart';
+import '../../../utils/theme.dart';
+import '../text_utils.dart';
 
 class CheckWidget extends StatelessWidget {
   CheckWidget({Key? key}) : super(key: key);

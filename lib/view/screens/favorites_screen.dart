@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/product_controller.dart';
+import '../../logic/controllers/product_controller.dart';
 
 class FavoritesScreen extends StatelessWidget {
   FavoritesScreen({Key? key}) : super(key: key);
