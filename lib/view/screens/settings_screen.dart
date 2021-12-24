@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:udemy_shop_app/logic/controllers/setting_controller.dart';
+import 'package:udemy_shop_app/view/widgets/settings/language_widget.dart';
+import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 import '../../logic/controllers/auth_controller.dart';
 import '../../logic/controllers/theme_controller.dart';
 import '../../utils/theme.dart';
@@ -10,6 +13,7 @@ class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);
 
   final controller = Get.find<AuthController>();
+  final settingsController = Get.put(SettingController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +23,57 @@ class SettingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         children: [
           ProfileImage(),
-          IconWidget(
-            color: darkSettings,
-            icon: Icons.dark_mode,
-            text: "Dark Mode",
-            onTap: () {
-              ThemeController().changesTheme();
-            },
+          const SizedBox(
+            height: 10,
+          ),
+          Divider(
+            color: Get.isDarkMode ? Colors.white : Colors.grey,
+            thickness: 2,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextUtils(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            text: "GENERAL",
+            // color: Get.isDarkMode ? Colors.white : Colors.black,
+            color: Get.isDarkMode ? pinkClr : mainColor,
+            underLine: TextDecoration.none,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconWidget(
+                  color: darkSettings,
+                  icon: Icons.dark_mode,
+                  text: "Dark Mode",
+                  onTap: () {
+                    null;
+                  },
+                ),
+                Switch(
+                  activeTrackColor: Get.isDarkMode ? pinkClr : mainColor,
+                  activeColor: Get.isDarkMode ? pinkClr : mainColor,
+                  value: settingsController.swithchValue.value,
+                  onChanged: (value) {
+                    ThemeController().changesTheme();
+                    settingsController.swithchValue.value = value;
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          LanguageWidget(),
+          const SizedBox(
+            height: 20,
           ),
           GetBuilder<AuthController>(
             builder: (_) {

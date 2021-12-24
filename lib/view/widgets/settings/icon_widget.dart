@@ -7,7 +7,7 @@ class IconWidget extends StatelessWidget {
   final IconData icon;
   final Color color;
   final String text;
-  final Function() onTap;
+  final Function onTap;
   const IconWidget({
     required this.icon,
     required this.color,
@@ -21,7 +21,9 @@ class IconWidget extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: () {
+          onTap();
+        },
         splashColor: color.withOpacity(0.4),
         borderRadius: BorderRadius.circular(12),
         customBorder: const StadiumBorder(),

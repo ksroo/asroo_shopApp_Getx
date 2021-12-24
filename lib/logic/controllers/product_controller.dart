@@ -87,6 +87,8 @@ class ProductController extends GetxController {
   }
 
   //Category Lis Featch data
+
+  
   var categoryNameList = <String>[].obs;
   var categoryList = <ProductModels>[].obs;
 

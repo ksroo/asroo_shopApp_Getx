@@ -5,6 +5,7 @@ import '../../view/screens/category_screen.dart';
 import '../../view/screens/favorites_screen.dart';
 import '../../view/screens/home_screen.dart';
 import '../../view/screens/settings_screen.dart';
+import 'auth_controller.dart';
 
 class MainController extends GetxController {
   RxInt currentIndex = 0.obs;
