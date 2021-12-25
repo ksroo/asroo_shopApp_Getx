@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/setting_controller.dart';
-import 'package:udemy_shop_app/view/widgets/settings/language_widget.dart';
-import 'package:udemy_shop_app/view/widgets/text_utils.dart';
+import '../../logic/controllers/setting_controller.dart';
+import '../widgets/settings/language_widget.dart';
+import '../widgets/text_utils.dart';
 import '../../logic/controllers/auth_controller.dart';
 import '../../logic/controllers/theme_controller.dart';
 import '../../utils/theme.dart';
 import '../widgets/settings/icon_widget.dart';
 import '../widgets/settings/profile_image.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -37,7 +38,6 @@ class SettingsScreen extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.bold,
             text: "GENERAL",
-            // color: Get.isDarkMode ? Colors.white : Colors.black,
             color: Get.isDarkMode ? pinkClr : mainColor,
             underLine: TextDecoration.none,
           ),

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:udemy_shop_app/logic/controllers/setting_controller.dart';
+import '../../../logic/controllers/setting_controller.dart';
 import '../../../logic/controllers/auth_controller.dart';
 import '../text_utils.dart';
 

@@ -1,5 +1,3 @@
 const Map<String, String> en = {
-
-  'Language' : 'login',
- 
+  'language': 'Language',
 };

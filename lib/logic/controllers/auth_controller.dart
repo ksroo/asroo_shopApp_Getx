@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -73,11 +73,11 @@ class AuthController extends GetxController {
         auth.currentUser!.updateDisplayName(name);
       });
 
-      await FirebaseFirestore.instance.collection('users').add({
-        'name': name,
-        'email': email,
-        'image': imagePath.value,
-      });
+      // await FirebaseFirestore.instance.collection('users').add({
+      //   'name': name,
+      //   'email': email,
+      //   'image': imagePath.value,
+      // });
 
       update();
 

@@ -1,5 +1,5 @@
 const Map<String, String> ar = {
 
-  'Language' : 'تسجيل دخول',
+  'language' : 'تسجيل دخول',
  
 };

@@ -1,14 +1,20 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/logic/controllers/setting_controller.dart';
-import 'package:udemy_shop_app/utils/my_string.dart';
-import 'package:udemy_shop_app/utils/theme.dart';
-import 'package:udemy_shop_app/view/widgets/settings/icon_widget.dart';
+import '../../../l10n/l10n.dart';
+import '../../../logic/controllers/setting_controller.dart';
+import '../../../utils/my_string.dart';
+import '../../../utils/theme.dart';
+import 'icon_widget.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageWidget extends StatelessWidget {
   LanguageWidget({Key? key}) : super(key: key);
 
   final controller = Get.find<SettingController>();
+  String langValue = english;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +24,18 @@ class LanguageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconWidget(
-              text: 'Language'.tr,
+              // text: AppLocalizations.of(context)!.language,
+              // text: !L10n.all.contains(Locale(controller.langLocal))
+              //     ? "language".tr
+              //     : AppLocalizations.of(context)!.language,
+              text: "language".tr,
+
               color: languageSettings,
               icon: Icons.language,
               onTap: () {},
             ),
             Container(
               width: 120,
-              // margin: E20dgeInsets.all(16),
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -49,7 +59,8 @@ class LanguageWidget extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      value: english,
+                      // ignore: prefer_if_null_operators
+                      value: controller.langLocal == null ? english : ene,
                     ),
                     DropdownMenuItem(
                       child: Text(
@@ -59,7 +70,7 @@ class LanguageWidget extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      value: arabic,
+                      value: ara,
                     ),
                     DropdownMenuItem(
                       child: Text(
@@ -69,10 +80,13 @@ class LanguageWidget extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      value: france,
+                      value: frf,
                     ),
                   ],
-                  value: controller.langLocal,
+                  // ignore: prefer_if_null_operators
+                  value: controller.langLocal == null
+                      ? langValue
+                      : controller.langLocal,
                   onChanged: (value) {
                     controller.changeLanguage(value!);
                     Get.updateLocale(Locale(value));

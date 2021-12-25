@@ -1,14 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udemy_shop_app/language/ar.dart';
-import 'package:udemy_shop_app/language/en.dart';
-import 'package:udemy_shop_app/language/fr.dart';
-import 'package:udemy_shop_app/utils/my_string.dart';
+import 'ar.dart';
+import 'en.dart';
+import 'fr.dart';
+import '../utils/my_string.dart';
 
-class Localization extends Translations {
+class LocalizationApp extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-        english: en,
-        arabic: ar,
-        france: fr,
-      }; 
+        ene: en,
+        ara: ar,
+        frf: fr,
+      };
 }
