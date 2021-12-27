@@ -37,7 +37,7 @@ class SettingsScreen extends StatelessWidget {
           TextUtils(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            text: "GENERAL",
+            text: AppLocalizations.of(context)!.general,
             color: Get.isDarkMode ? pinkClr : mainColor,
             underLine: TextDecoration.none,
           ),
@@ -51,7 +51,7 @@ class SettingsScreen extends StatelessWidget {
                 IconWidget(
                   color: darkSettings,
                   icon: Icons.dark_mode,
-                  text: "Dark Mode",
+                  text: AppLocalizations.of(context)!.darkmode,
                   onTap: () {
                     null;
                   },
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
               return IconWidget(
                 color: logOutSettings,
                 icon: Icons.logout,
-                text: "Logout",
+                text: AppLocalizations.of(context)!.logout,
                 onTap: () {
                   Get.defaultDialog(
                     title: "Logout From App",

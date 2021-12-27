@@ -1,5 +1,6 @@
 const Map<String, String> ar = {
-
-  'language' : 'تسجيل دخول',
- 
+  "general": "عام",
+  "darkmode": "الوضع الداكن",
+  "language": "لغة",
+  "logout": "تسجيل خروج",
 };

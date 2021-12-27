@@ -32,36 +32,6 @@ class ProfileImage extends StatelessWidget {
                   ),
                 ),
               ),
-              // controller.displayUserPhoto.value == ''
-              //     ? controller.imagePath.value == 'null'
-              //         ? Container(
-              //             height: 100,
-              //             width: 100,
-              //             decoration: const BoxDecoration(
-              //               color: Colors.black,
-              //               shape: BoxShape.circle,
-              //               image: DecorationImage(
-              //                 image:
-              //                     AssetImage("assets/images/empty_proile.png"),
-              //                 fit: BoxFit.cover,
-              //               ),
-              //             ),
-              //           )
-              //         : Container(
-              //             height: 100,
-              //             width: 100,
-              //             decoration: BoxDecoration(
-              //               color: Colors.black,
-              //               shape: BoxShape.circle,
-              //               image: DecorationImage(
-              //                 image: FileImage(
-              //                   File(controller.imagePath.value),
-              //                 ),
-              //                 fit: BoxFit.cover,
-              //               ),
-              //             ),
-              //           )
-              //     :
               const SizedBox(
                 width: 15,
               ),
@@ -88,28 +58,6 @@ class ProfileImage extends StatelessWidget {
             ],
           ),
         ),
-        // Row(
-        //   children: [
-        //     IconButton(
-        //       onPressed: () {
-        //         controller.getImage(ImageSource.camera);
-        //       },
-        //       icon: Icon(
-        //         Icons.camera_alt_outlined,
-        //         color: Get.isDarkMode ? Colors.white : Colors.black,
-        //       ),
-        //     ),
-        //     IconButton(
-        //       onPressed: () {
-        //         controller.getImage(ImageSource.gallery);
-        //       },
-        //       icon: Icon(
-        //         Icons.image_outlined,
-        //         color: Get.isDarkMode ? Colors.white : Colors.black,
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ],
     );
   }

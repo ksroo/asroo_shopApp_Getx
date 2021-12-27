@@ -43,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                       child: TextUtils(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
-                        text: 'Welcome',
+                        text: 'Welcome'.tr,
                         color: Colors.white,
                         underLine: TextDecoration.none,
                       ),
@@ -115,7 +115,7 @@ class WelcomeScreen extends StatelessWidget {
                       TextUtils(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
-                        text: "Don't have an Account?",
+                        text: "Dont have an Account?",
                         color: Colors.white,
                         underLine: TextDecoration.none,
                       ),

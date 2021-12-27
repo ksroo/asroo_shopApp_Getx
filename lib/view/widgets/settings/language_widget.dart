@@ -24,11 +24,11 @@ class LanguageWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconWidget(
-              // text: AppLocalizations.of(context)!.language,
+              text: AppLocalizations.of(context)!.language,
               // text: !L10n.all.contains(Locale(controller.langLocal))
               //     ? "language".tr
               //     : AppLocalizations.of(context)!.language,
-              text: "language".tr,
+              // text: "Language".tr,
 
               color: languageSettings,
               icon: Icons.language,

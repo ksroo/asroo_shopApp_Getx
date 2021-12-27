@@ -1,6 +1,22 @@
 {
-    "language": "language",
+    
+    "general": "GENERAL",
+    "@general":{
+        "general": "GENERAL"
+    },
+    "darkmode": "Dark Mode",
+    "@darkmode":{
+        "darkmode": "Dark Mode"
+    },
+    "language": "Language",
     "@language":{
         "language": "Language"
+    },
+    "logout": "Logout",
+    "@logout":{
+        "logout": "Logout"
     }
+   
+
+  
 }

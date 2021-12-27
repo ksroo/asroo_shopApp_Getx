@@ -1,3 +1,6 @@
 {
-    "language": "العربيه"
+    "general": "عام",
+    "darkmode": "الوضع الداكن",
+    "language": "لغة",
+    "logout": "تسجيل خروج"
 }

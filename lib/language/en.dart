@@ -1,3 +1,7 @@
 const Map<String, String> en = {
-  'language': 'Language',
+  "general": "GENERAL",
+  "darkmode": "Dark Mode",
+  "language": "Language",
+  "logout": "Logout",
+  
 };

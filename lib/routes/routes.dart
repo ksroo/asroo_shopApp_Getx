@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:udemy_shop_app/view/screens/payment_screen.dart';
 import '../logic/bindings/auth_biniding.dart';
 import '../logic/bindings/main_binding.dart';
 import '../logic/bindings/product_binding.dart';
@@ -55,6 +56,16 @@ class AppRoutes {
         ProductBinding(),
       ],
     ),
+
+    GetPage(
+      name: Routes.payMentScreen,
+      page: () => PaymentScreen(),
+      bindings: [
+        AuthBinding(),
+        ProductBinding(),
+        MainBininding(),
+      ],
+    ),
     // GetPage(
     //   name: Routes.categoryItems,
     //   page: () => CategoryItems(),
@@ -74,4 +85,5 @@ class Routes {
   static const mainScreen = '/mainScreen';
   static const cartScreen = '/cartScreen';
   static const categoryItems = '/categoryItems';
+  static const payMentScreen = '/payMentScreen';
 }
