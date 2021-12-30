@@ -40,8 +40,9 @@ class LanguageWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                    color: Get.isDarkMode ? Colors.white : Colors.black,
-                    width: 2),
+                  color: Get.isDarkMode ? Colors.white : Colors.black,
+                  width: 2,
+                ),
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(

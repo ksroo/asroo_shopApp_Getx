@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:udemy_shop_app/logic/controllers/cart_controller.dart';
 import 'package:udemy_shop_app/logic/controllers/payment_controller.dart';
 import 'package:udemy_shop_app/utils/theme.dart';
 import 'package:udemy_shop_app/view/widgets/payment/delivery_continer.dart';
@@ -9,6 +10,7 @@ import 'package:udemy_shop_app/view/widgets/text_utils.dart';
 class PaymentScreen extends StatelessWidget {
   PaymentScreen({Key? key}) : super(key: key);
   final controller = Get.find<PayMentController>();
+  final cartController = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class PaymentScreen extends StatelessWidget {
                 child: TextUtils(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  text: "Total : 180\$",
+                  text: "Total : ${cartController.total}\$",
                   color: Get.isDarkMode ? Colors.white : Colors.black,
                   underLine: TextDecoration.none,
                 ),

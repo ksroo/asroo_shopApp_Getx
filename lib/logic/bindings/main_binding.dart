@@ -8,6 +8,7 @@ class MainBininding extends Bindings {
   void dependencies() {
     Get.put(MainController());
     Get.put(SettingController());
-    Get.lazyPut(() => PayMentController());
+    //Get.lazyPut(() => PayMentController(), fenix: true);
+    Get.put(PayMentController(), permanent: true);
   }
 }

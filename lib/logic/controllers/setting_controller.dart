@@ -46,6 +46,9 @@ class SettingController extends GetxController {
     update();
   }
 
+  // void changesss(String code) {
+  //   Get.updateLocale(Locale(code));
+  // }
   // Locale? mainLocal;
   // void changeLanguage(Locale locale) {
   //   if (!L10n.all.contains(locale)) {
